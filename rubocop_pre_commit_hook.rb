@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 ADDED_OR_MODIFIED = /^\s*(A|AM|M)/
 
