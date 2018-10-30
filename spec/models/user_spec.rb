@@ -6,12 +6,13 @@ RSpec.describe User, type: :model do
   context 'user validations' do
     let(:user) { build(:user) }
 
-    it { is_expected.to validate_presence_of(:email) }
+    it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_length_of(:email).is_at_least(6).is_at_most(120) }
     it { should have_secure_password }
     it { should validate_length_of(:password).is_at_least(6).is_at_most(30) }
-    it { is_expected.to validate_presence_of(:role) }
+    it { should validate_presence_of(:role) }
+    it { should have_many(:tasks).dependent(:destroy) }
 
     it 'email validation should accept valid adresses' do
       valid_adresses = %w[example@gmail.com example.example@gmail.com
