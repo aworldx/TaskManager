@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - 'db/*'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'bin/*'
+Rails:
+  Enabled: true
+Metrics/LineLength:
+  Max: 80
+Style/Documentation:
+  Enabled: false
