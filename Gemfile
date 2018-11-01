@@ -37,6 +37,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'aasm'
+gem 'slim'
+gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +54,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do
