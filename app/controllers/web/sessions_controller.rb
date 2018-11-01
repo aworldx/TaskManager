@@ -10,11 +10,11 @@ class Web::SessionsController < Web::ApplicationController
 
     if user&.authenticate(params[:session][:password])
       log_in user
-      redirect_to user_cab_path
-    else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      return
     end
+
+    flash.now[:danger] = 'Invalid email/password combination'
+    render 'new'
   end
 
   def destroy
