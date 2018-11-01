@@ -1,12 +1,21 @@
 AllCops:
   Exclude:
-    - 'db/*'
+    - 'db/**/*'
     - 'Gemfile'
     - 'Gemfile.lock'
     - 'bin/*'
+    - 'config/**/*'
+    - 'config/initializers/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 Rails:
   Enabled: true
 Metrics/LineLength:
   Max: 80
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
 Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
   Enabled: false
