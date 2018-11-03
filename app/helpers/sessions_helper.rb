@@ -6,6 +6,11 @@ module SessionsHelper
     redirect_to user_cab_path
   end
 
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
   def current_user
     return unless session[:user_id]
 
@@ -16,19 +21,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
-
   def user_cab_path
     current_user.admin? ? admin_tasks_path : tasks_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    flash[:danger] = 'Please log in.'
-    redirect_to login_path
   end
 end

@@ -1,0 +1,11 @@
+= simple_form_for @task do |f|
+  = f.input :name
+  = f.input :description
+  - if current_user.admin?
+    = f.association :user, label_method: :user_name
+  else
+    = f.input :user_id, as: :hidden
+  = image_tag @task.image.thumb.url if @task.image?
+  = f.input :image
+  = f.hidden_field :image_cache
+  = f.submit

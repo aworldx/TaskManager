@@ -1,0 +1,3 @@
+= render layout: 'layouts/tasks/task', locals: { task: task } do |t|
+  td = t.user_name
+  = render 'shared/tasks/links', task: t

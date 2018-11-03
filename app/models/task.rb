@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  default_scope { order(:id) }
+
   include AASM
 
   belongs_to :user
@@ -20,4 +22,7 @@ class Task < ApplicationRecord
       transitions from: :started, to: :finished
     end
   end
+
+  delegate :user_name, to: :user
+  mount_uploader :image, ImageUploader
 end

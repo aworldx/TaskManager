@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::SessionsController < Web::ApplicationController
-  skip_before_action :logged_in_user, only: %I[new create]
+  skip_before_action :check_user_logged_in, only: %I[new create]
 
   def new; end
 

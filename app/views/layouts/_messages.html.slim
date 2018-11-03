@@ -1,6 +1,5 @@
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    .alert role="alert" class="alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"
-      button.close type="button" data-dismiss="alert" aria-hidden="true"
-        |&times;
-      = content_tag :div, msg, id: "flash_#{name}"
+- flash.each do |flash_type, message|
+  .alert role="alert" class="#{flash_alert_class(flash_type)}"
+    button.close type="button" data-dismiss="alert" aria-hidden="true"
+      |&times;
+    = content_tag :div, message, id: "flash_#{flash_type}"

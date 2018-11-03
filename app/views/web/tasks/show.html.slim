@@ -1,0 +1,30 @@
+h2 Task Details
+.form-group
+  = label @task, :name
+  = text_field @task, :name,
+                      value: @task.name,
+                      class: 'form-control',
+                      disabled: true
+
+.form-group
+  = label @task, :description
+  = text_field @task, :description,
+                      value: @task.description,
+                      class: 'form-control',
+                      disabled: true
+
+.form-group
+  = label @task, :user
+  = text_field @task, :user,
+                      value: @task.user_name,
+                      class: 'form-control',
+                      disabled: true
+
+.form-group
+  = label @task, :state
+  = text_field @task, :state,
+                      value: @task.state,
+                      class: 'form-control',
+                      disabled: true
+.form-group
+  = link_to image_tag(@task.image.thumb.url, alt: 'Image') if @task.image?

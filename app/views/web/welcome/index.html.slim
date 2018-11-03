@@ -1,2 +1,7 @@
 h2 Main page
-= render 'task_list'
+table.table
+  tbody
+    = render partial: 'layouts/tasks/task', collection: @tasks
+.row
+  .col
+    = will_paginate @tasks

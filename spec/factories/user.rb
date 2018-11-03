@@ -7,6 +7,11 @@ FactoryBot.define do
     password_confirmation { '123456' }
     role { :user }
 
+    factory :another_user do
+      email { 'another@gmail.com' }
+      role { :admin }
+    end
+
     factory :admin do
       email { 'admin@gmail.com' }
       role { :admin }

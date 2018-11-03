@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Web::WelcomeController, type: :controller do
   context 'GET #index' do
     let(:user) { create(:user) }
+
     it 'should render index view if user logged in' do
       session[:user_id] = user.id
 
