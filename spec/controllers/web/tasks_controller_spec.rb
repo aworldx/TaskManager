@@ -129,16 +129,13 @@ RSpec.describe Web::TasksController, type: :controller do
 
   context 'POST #destroy' do
     context 'user deletes own task' do
-
     end
 
     context "deletes another's task" do
       context 'by user' do
-
       end
 
       context 'by admin' do
-
       end
     end
   end
