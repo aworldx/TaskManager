@@ -10,10 +10,10 @@ Things you may want to cover:
 
 ref: https://limitless-dawn-77905.herokuapp.com
 
-admin login: admin@example.com
+admin login: admin@example.com  
 admin password: 123456
 
-user login: user@example.com
+user login: user@example.com  
 user pasword: 123456
 
 * TESTS
