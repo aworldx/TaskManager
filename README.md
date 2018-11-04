@@ -18,5 +18,5 @@ user pasword: 123456
 
 * TESTS
 
-start command: rspec
+start command: rspec  
 firefox and geckodriver must be installed
