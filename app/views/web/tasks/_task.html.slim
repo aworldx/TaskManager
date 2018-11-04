@@ -1,5 +1,5 @@
 tr id="task_id_#{task.id}"
-  td = task.id
+  td = link_to task.id, task_path(task)
   td = l(task.created_at, format: :short)
   td = task.name
   td = task.state
