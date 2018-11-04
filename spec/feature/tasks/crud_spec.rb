@@ -73,11 +73,30 @@ RSpec.feature 'CRUD tasks', type: :feature do
       expect(section).to have_text 'updated by admin'
     end
 
-    scenario 'User deletes task' do
+    scenario 'Admin user can delete another user task' do
       click_link 'delete'
 
       expect(page).to have_text 'Task deleted'
       expect(page).not_to have_css "#task_id_#{task.id}"
+    end
+
+    scenario 'Admin user can change user in task' do
+      another_user = create(:another_user)
+
+      section = find(:css, "#task_id_#{task.id}")
+      expect(section).to have_text task.user_name
+
+      click_link 'edit'
+
+      select another_user.user_name, from: 'User'
+
+      click_button 'Update Task'
+      expect(page).to have_text 'Task updated'
+
+      visit admin_tasks_path
+
+      section = find(:css, "#task_id_#{task.id}")
+      expect(section).to have_text another_user.user_name
     end
   end
 end
