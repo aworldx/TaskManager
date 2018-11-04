@@ -5,8 +5,6 @@ require 'faker'
 namespace :db_data_generator do
   desc 'generates some users with faker gem'
   task generate_users: :environment do
-    require 'faker'
-
     10.times do
       pass = Faker::Internet.password(8)
       User.create(email: Faker::Internet.unique.email,
@@ -17,8 +15,6 @@ namespace :db_data_generator do
 
   desc 'generates some tasks with faker gem'
   task generate_tasks: :environment do
-    require 'faker'
-    
     User.find_each do |user|
       5.times do
         user.tasks.create(name: Faker::Lorem.sentence,
