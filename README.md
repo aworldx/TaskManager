@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+2.5.0
 
-* Configuration
+* Heroku link
 
-* Database creation
+ref: https://limitless-dawn-77905.herokuapp.com
 
-* Database initialization
+admin login: admin@example.com
+admin password: 123456
 
-* How to run the test suite
+user login: user@example.com
+user pasword: 123456
 
-* Services (job queues, cache servers, search engines, etc.)
+* TESTS
 
-* Deployment instructions
-
-* ...
+start command: rspec
+firefox and geckodriver must be installed
