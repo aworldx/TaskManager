@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aworldx/TaskManager.svg?branch=master)](https://travis-ci.org/aworldx/TaskManager)
+
 # README
 
 * Ruby version
