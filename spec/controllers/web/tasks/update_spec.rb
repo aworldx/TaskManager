@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Web::TasksController, type: :controller do
   let(:user) { create(:user) }
-  let(:another_user) { create(:another_user) }
-  let(:admin) { create(:admin) }
-
   let(:task) { create(:task, user: user) }
-  let(:anothers_task) { create(:task, user: another_user) }
 
   before(:each) { session[:user_id] = user.id }
 

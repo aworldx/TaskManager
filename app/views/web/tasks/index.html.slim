@@ -1,9 +1,9 @@
 h2 User tasks
 table.table
   tbody
-    = render @tasks
+    = render partial: 'task',
+             collection: @presenter.task_list,
+             locals: { presenter: @presenter }
 .row
-  .col
-    = will_paginate @tasks
   .col
     = link_to 'Create new', new_task_path

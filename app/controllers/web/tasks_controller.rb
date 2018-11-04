@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 class Web::TasksController < Web::ApplicationController
+  before_action :task, only: %I[show edit update destroy]
   before_action :check_task_owner, only: %I[edit destroy]
 
   def index
-    pg = Settings.tasks[:pagination_size]
-    @tasks = current_user.tasks.paginate(page: params[:page], per_page: pg)
+    @presenter = Web::Tasks::UserTasksPresenter.new(current_user)
   end
 
-  def show
-    task
-  end
+  def show; end
 
   def edit; end
 

@@ -1,6 +1,0 @@
-td
-  - task.aasm.events.each do |event|
-    = link_to event.name, send("task_#{event.name}_path", task), method: :post, remote: true
-td = link_to 'edit', edit_task_path(task)
-td = link_to 'delete', task_path(task), method: :delete,
-             data: { confirm: 'Are you shure?' }

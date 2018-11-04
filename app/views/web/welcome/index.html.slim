@@ -1,7 +1,6 @@
 h2 Main page
 table.table
   tbody
-    = render partial: 'layouts/tasks/task', collection: @tasks
-.row
-  .col
-    = will_paginate @tasks
+    = render partial: 'web/tasks/task',
+             collection: @presenter.task_list,
+             locals: { presenter: @presenter }

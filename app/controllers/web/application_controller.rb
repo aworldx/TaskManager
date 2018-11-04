@@ -2,10 +2,8 @@
 
 class Web::ApplicationController < ApplicationController
   protect_from_forgery with: :exception
-
-  include SessionsHelper
-
   before_action :check_user_logged_in
+  include SessionsHelper
 
   private
 

@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2018_11_03_125525) do
     t.string "name"
     t.text "description"
     t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "image"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
@@ -30,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_125525) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "tasks", "users"

@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Web::Admin::TasksController, type: :controller do
   let(:user) { create(:user) }
-  let(:another_user) { create(:another_user) }
   let(:admin) { create(:admin) }
-
-  let(:tasks) { create_list(:task, 2, user: user) }
-  let(:anothers_task) { create(:task, user: another_user) }
 
   context 'GET #index' do
     context 'by user with role user' do
@@ -26,7 +22,7 @@ RSpec.describe Web::Admin::TasksController, type: :controller do
       before(:each) { get :index }
 
       it 'should populate array of all tasks' do
-        expect(assigns(:tasks)).to match_array(Task.all)
+        expect(assigns(:presenter).task_list).to match_array(Task.all)
       end
 
       it 'should render index view' do

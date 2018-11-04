@@ -43,8 +43,6 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
-gem 'will_paginate', '~> 3.1.0'
-gem 'config'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,6 +57,9 @@ group :test do
   gem 'faker'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'selenium-webdriver'
 end
 
 group :development do

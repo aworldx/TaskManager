@@ -15,7 +15,7 @@ RSpec.describe Web::SessionsController, type: :controller do
 
     context 'login with valid credintials' do
       it 'should save user in session and redirect to user cabinet' do
-        sign_in(user.email, '123456')
+        log_in(user.email, user.password)
 
         expect(session[:user_id]).to eq(user.id)
         expect(response).to redirect_to(tasks_path)
@@ -24,7 +24,7 @@ RSpec.describe Web::SessionsController, type: :controller do
 
     context 'login with invalid credintials' do
       it 'should render new view with flash message' do
-        sign_in(user.email, 'wrong password')
+        log_in(user.email, 'wrong password')
 
         expect(session[:user_id]).not_to be_present
         expect(response).to render_template :new
@@ -35,7 +35,7 @@ RSpec.describe Web::SessionsController, type: :controller do
     context 'login admin user' do
       it 'should redirect user to admin path' do
         admin = create(:admin)
-        sign_in(admin.email, '123456')
+        log_in(admin.email, user.password)
 
         expect(response).to redirect_to(admin_tasks_path)
       end

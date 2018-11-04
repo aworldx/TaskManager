@@ -7,17 +7,17 @@ RSpec.describe Web::TasksController, type: :controller do
   let(:another_user) { create(:another_user) }
   let(:admin) { create(:admin) }
 
-  let(:tasks) { create_list(:task, 2, user: user) }
+  let(:task) { create(:task, user: user) }
   let(:anothers_task) { create(:task, user: another_user) }
 
   before(:each) { session[:user_id] = user.id }
 
   context 'GET #edit' do
     context 'user edits own task' do
-      before(:each) { get :edit, params: { id: tasks.first.id } }
+      before(:each) { get :edit, params: { id: task.id } }
 
       it 'should assign requested task to @task' do
-        expect(assigns(:task)).to eq tasks.first
+        expect(assigns(:task)).to eq task
       end
 
       it 'should render new view' do

@@ -1,3 +1,4 @@
-<% partial = current_user.admin? ? 'web/admin/tasks/task' : 'task' %>
-<% rendered = render partial: partial, locals: { task: @task } %>
-$("#task_#{'<%= @task.id %>'}").replaceWith '<%= j(rendered) %>'
+<% partial = render partial: 'task',
+                    locals: { task: @task, presenter: @presenter } %>
+
+$("#task_id_#{'<%= @task.id %>'}").replaceWith '<%= j(partial) %>'

@@ -1,2 +1,14 @@
-= render layout: 'layouts/tasks/task', locals: { task: task } do |t|
-  = render 'shared/tasks/links', task: t
+tr id="task_id_#{task.id}"
+  td = task.id
+  td = l(task.created_at, format: :short)
+  td = task.name
+  td = task.state
+  - presenter.extra_fields.each do |field|
+    td = presenter.show_field(task, field)
+  - if presenter.show_links?
+    td
+      - presenter.state_refs(task).each do |ref|
+        = link_to ref[:name], ref[:url], ref[:options]
+    td = link_to 'edit', edit_task_path(task)
+    td = link_to 'delete', task_path(task), method: :delete,
+                 data: { confirm: 'Are you shure?' }

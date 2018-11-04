@@ -4,19 +4,15 @@ require 'rails_helper'
 
 RSpec.describe Web::TasksController, type: :controller do
   let(:user) { create(:user) }
-  let(:another_user) { create(:another_user) }
-  let(:admin) { create(:admin) }
-
-  let(:tasks) { create_list(:task, 2, user: user) }
-  let(:anothers_task) { create(:task, user: another_user) }
+  let(:task) { create(:task, user: user) }
 
   before(:each) { session[:user_id] = user.id }
 
   context 'GET #show' do
-    before(:each) { get :show, params: { id: tasks.first.id } }
+    before(:each) { get :show, params: { id: task.id } }
 
     it 'should assign requested task to @task' do
-      expect(assigns(:task)).to eq tasks.first
+      expect(assigns(:task)).to eq task
     end
 
     it 'should render show view' do

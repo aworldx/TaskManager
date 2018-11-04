@@ -3,6 +3,7 @@
 module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
+    flash[:notice] = 'You logged in successfully'
     redirect_to user_cab_path
   end
 

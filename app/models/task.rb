@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  default_scope { order(:id) }
+  default_scope { order(:created_at) }
 
   include AASM
 
