@@ -1,6 +1,10 @@
 language: ruby
 rvm:
   - 2.5.0
-  - jruby
 os:
   - osx
+services:
+ - postgresql
+before_script:
+ - psql -c 'create database taskmanager_test;' -U postgres
+ - cp config/database.yml.travis config/database.yml
