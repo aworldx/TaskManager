@@ -43,6 +43,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,7 +55,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
